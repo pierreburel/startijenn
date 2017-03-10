@@ -5,33 +5,33 @@ export default {
   deps: ['server']
 };
 
-export var build = {
+export const build = {
   deps: ['clean'],
   sequence: [
     ['images', 'fonts', 'sprites'],
     ['styles', 'scripts'],
-    ['copy']
+    ['views', 'copy']
   ]
 };
 
-export var clean = {
+export const clean = {
   src: './dist/*',
   del: {
     dot: true
   }
 };
 
-export var copy = {
-  src: ['./src/**/*.*', '!./src/assets/**/*.*'],
+export const copy = {
+  src: './src/static/**/*.*',
   dest: './dist/'
 };
 
-export var fonts = {
-  src: './src/assets/fonts/*',
+export const fonts = {
+  src: './src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
   dest: './dist/assets/fonts/'
 };
 
-export var images = {
+export const images = {
   src: './src/assets/images/**/*.{jpe?g,png,gif,svg}',
   dest: './dist/assets/images/',
   imagemin: {
@@ -39,13 +39,13 @@ export var images = {
   }
 };
 
-export var scripts = {
+export const scripts = {
   src: './src/assets/scripts/*.js',
   dest: './dist/assets/scripts/',
   webpack: webpack
 };
 
-export var sprites = {
+export const sprites = {
   src: './src/assets/images/sprite/*.svg',
   dest: './dist/assets/images/',
   svgmin: {
@@ -59,7 +59,7 @@ export var sprites = {
   }
 };
 
-export var styles = {
+export const styles = {
   src: './src/assets/styles/**/*.scss',
   dest: './dist/assets/styles/',
   sass: {
@@ -72,7 +72,7 @@ export var styles = {
   }
 };
 
-export var server = {
+export const server = {
   deps: ['build'],
   browserSync: {
     files: [
@@ -87,30 +87,21 @@ export var server = {
     ghostMode: false,
     open: false
   },
-  watch: [
-    {
-      src: copy.src,
-      task: 'copy'
-    },
-    {
-      src: fonts.src,
-      task: 'fonts'
-    },
-    {
-      src: images.src,
-      task: 'images'
-    },
-    {
-      src: './src/assets/scripts/**/*.js',
-      task: 'scripts'
-    },
-    {
-      src: sprites.src,
-      task: 'sprites'
-    },
-    {
-      src: styles.src, 
-      task: 'styles'
-    }
-  ]
+  watch: {
+    copy: './src/static/**/*.*',
+    fonts: './src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
+    images: './src/assets/images/**/*.{jpe?g,png,gif,svg}',
+    scripts: './src/assets/scripts/**/*.js',
+    sprites: './src/assets/images/**/*.svg',
+    styles: './src/assets/styles/**/*.scss',
+    views: './src/**/*.pug'
+  }
+};
+
+export const views = {
+  src: ['./src/**/*.pug', '!./src/**/_*.pug'],
+  dest: './dist',
+  pug: {
+    
+  }
 };

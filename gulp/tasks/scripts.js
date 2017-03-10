@@ -6,7 +6,7 @@ import webpackStream from 'webpack-stream';
 import named from 'vinyl-named';
 import {scripts as config} from '../config';
 
-gulp.task('scripts', config.deps, (cb) => {
+gulp.task('scripts', config.deps, () => {
   return gulp.src(config.src)
     .pipe(plumber())
     .pipe(named())

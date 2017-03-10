@@ -9,7 +9,7 @@ import {styles as config} from '../config';
 gulp.task('styles', () => {
   return gulp.src(config.src)
     .pipe(sourcemaps.init())
-    .pipe(sass(config.sass).on('error', sass.logError).on('error', notify.onError({title: 'Sass error'})))
+    .pipe(sass(config.sass).on('error', notify.onError({title: 'Sass error'})))
     .pipe(postcss([
       autoprefixer(config.autoprefixer)
     ]))
