@@ -1,2 +1,3 @@
-import log from './lib/log';
-log('test');
+import $ from 'jquery';
+
+System.import('./lib/log').then(log => log.default('test'));

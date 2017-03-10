@@ -1,7 +1,12 @@
-import pkg from '../package.json';
+import webpack from 'webpack';
 import BabiliPlugin from 'babili-webpack-plugin';
+import pkg from '../package.json';
 
 export default {
+  output: {
+    publicPath: 'assets/scripts/',
+    chunkFilename: '[id].chunk.js'
+  },
   module: {
     rules: [
       { 
@@ -22,7 +27,10 @@ export default {
     ]
   },
   plugins: [
-    new BabiliPlugin()
+    new BabiliPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    })
   ],
-  devtool: 'source-map'
+  devtool: 'cheap-eval-source-map'
 };
