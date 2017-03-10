@@ -2,7 +2,7 @@ import pkg from '../package.json';
 import webpack from './webpack.config.js';
 
 export default {
-  deps: ['watch']
+  deps: ['server']
 };
 
 export var build = {
@@ -72,9 +72,22 @@ export var styles = {
   }
 };
 
-export var watch = {
+export var server = {
   deps: ['build'],
-  watchers: [
+  browserSync: {
+    files: [
+      './dist/**/*.html', 
+      './dist/assets/styles/**/*.css', 
+      './dist/assets/scripts/**/*.js', 
+      './dist/assets/images', 
+      './dist/assets/fonts'
+    ],
+    injectChanges: true,
+    server: './dist',
+    ghostMode: false,
+    open: false
+  },
+  watch: [
     {
       src: copy.src,
       task: 'copy'
