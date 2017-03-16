@@ -6,10 +6,10 @@ import webpackStream from 'webpack-stream';
 import named from 'vinyl-named';
 import {scripts as config} from '../config';
 
-gulp.task('scripts', config.deps, () => {
-  return gulp.src(config.src)
+gulp.task('scripts', config.deps, () => 
+  gulp.src(config.src)
     .pipe(plumber())
     .pipe(named())
     .pipe(webpackStream(config.webpack, webpack).on('error', notify.onError({title: 'Webpack error'})))
-    .pipe(gulp.dest(config.dest));
-});
+    .pipe(gulp.dest(config.dest))
+);

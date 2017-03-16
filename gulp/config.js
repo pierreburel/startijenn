@@ -1,5 +1,7 @@
+import util from 'gulp-util';
+import webpack from 'webpack';
+import BabiliPlugin from 'babili-webpack-plugin';
 import pkg from '../package.json';
-import webpack from './webpack.config.js';
 
 export default {
   deps: ['server']
@@ -32,7 +34,7 @@ export const fonts = {
 };
 
 export const images = {
-  src: './src/assets/images/**/*.{jpe?g,png,gif,svg}',
+  src: './src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
   dest: './dist/assets/images/',
   imagemin: {
     
@@ -42,7 +44,38 @@ export const images = {
 export const scripts = {
   src: './src/assets/scripts/*.js',
   dest: './dist/assets/scripts/',
-  webpack: webpack
+  webpack: {
+    output: {
+      publicPath: 'assets/scripts/',
+      chunkFilename: '[id].chunk.js'
+    },
+    module: {
+      rules: [
+        { 
+          test: /\.js$/, 
+          exclude: /node_modules/, 
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['env', {
+                targets: {
+                  browsers: pkg.browserlist
+                }
+              }],
+              ['babili']
+            ]
+          }
+        }
+      ]
+    },
+    plugins: [
+      new BabiliPlugin(),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor'
+      })
+    ],
+    devtool: util.env.production ? 'cheap-module-source-map' : 'cheap-module-eval-source-map'
+  }
 };
 
 export const sprites = {
@@ -90,7 +123,7 @@ export const server = {
   watch: {
     copy: './src/static/**/*.*',
     fonts: './src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
-    images: './src/assets/images/**/*.{jpe?g,png,gif,svg}',
+    images: './src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
     scripts: './src/assets/scripts/**/*.js',
     sprites: './src/assets/images/**/*.svg',
     styles: './src/assets/styles/**/*.scss',
