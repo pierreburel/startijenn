@@ -1,0 +1,52 @@
+body,
+h1, h2, h3, h4, h5, h6,
+blockquote, p, pre,
+dl, dd, ol, ul,
+figure,
+hr,
+fieldset, legend {
+  margin:  0;
+  padding: 0;
+}
+
+li > ol,
+li > ul {
+  margin-bottom: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+img,
+svg {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+fieldset {
+  min-width: 0;
+  border: 0;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+label,
+button:not(:disabled) {
+  cursor: pointer;
+}

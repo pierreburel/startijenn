@@ -1,0 +1,25 @@
+$asset-base-path: '../' !default;
+
+@function asset-path($type, $file) {
+  @return $asset-base-path + $type + '/' + $file;
+}
+
+@function asset-url($type, $file) {
+  @return url(asset-path($type, $file));
+}
+
+@function image-path($file) {
+  @return asset-path('images', $file);
+}
+
+@function image-url($file) {
+  @return url(image-path($file));
+}
+
+@function font-path($file) {
+  @return asset-path('fonts', $file);
+}
+
+@function font-url($file) {
+  @return url(font-path($file));
+}

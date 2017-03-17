@@ -1,0 +1,90 @@
+// COLORS
+
+@include settings(colors, (
+  foreground: #000,
+  background: #fff,
+  "red": #f00,
+  "green": #0f0,
+  "blue": #00f
+), (
+  primary: blue, 
+  secondary: green,
+  error: red
+));
+
+
+// FONT-FAMILIES
+
+@include settings(font-families, (
+  sans-serif: (Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif),
+  serif: (Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif),
+  code: (Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace)
+), (
+  default: sans-serif, 
+  primary: sans-serif
+));
+
+
+// FONT-SIZES
+
+@include settings(font-sizes, (
+  default: 16px,
+  custom: (default, default)
+));
+
+
+// FONT-WEIGHTS
+
+@include settings(font-weights, (
+  thin: 100,
+  hairline: 100,
+  extra-light: 200,
+  ultra-light: 200,
+  light: 300,
+  normal: 400,
+  regular: 400,
+  medium: 500,
+  semi-bold: 600,
+  demi-bold: 600,
+  bold: 700,
+  extra-bold: 800,
+  ultra-bold: 800,
+  black: 900,
+  heavy: 900
+));
+
+
+// LINE-HEIGHTS
+
+@include settings(line-heights, (
+  default: 24px
+));
+
+
+// DIMENSIONS
+
+@include settings(dimensions, (
+  container: 940px,
+  gutter: 20px
+));
+
+
+// Z-INDEXES
+
+@include settings(z-indexes, (
+
+));
+
+
+// MQ (BREAKPOINTS)
+
+$mq-breakpoints: (
+
+);
+@include settings(breakpoints, $mq-breakpoints);
+
+
+// REM
+
+$rem-baseline: 10px;
+$rem-fallback: false;

@@ -1,0 +1,27 @@
+@mixin font-size($font-size: default, $line-height: auto) {
+  @if type-of($font-size) == string {
+    $font-size: font-size($font-size);
+  }
+  
+  @if type-of($font-size) == list {
+    $line-height: nth($font-size, 2);
+    $font-size: nth($font-size, 1);
+  }
+  
+  @if $font-size {
+    @include rem(font-size, $font-size);
+
+    @if $line-height == auto {
+      $line-height: line-height(default);
+      line-height: ceil($font-size / $line-height) * ($line-height / $font-size);
+    } @elseif type-of($line-height) == number or $line-height == inherit or $line-height == normal {
+      @if type-of($line-height) == number and unit($line-height) == px {
+        line-height: $line-height / $font-size;
+      } @else {
+        line-height: $line-height;
+      }
+    } @elseif type-of($line-height) == string {
+      line-height: line-height($line-height);
+    }
+  }
+}

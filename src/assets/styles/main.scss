@@ -1,3 +1,33 @@
-body {
-  background: #eee;
-}
+@charset "UTF-8";
+
+// SHARED IMPORTS
+
+@import "shared";
+
+
+// COMPONENTS
+// Reutilisable components (banner, button, card…)
+// Prefix: c
+
+@import "components/container";
+
+
+// PAGES
+// Page specific styles
+// Prefix: p
+
+// @import "pages/homepage";
+
+
+// THEMES
+// Prefix: t
+
+// @import "themes/colors";
+
+
+// UTILITIES
+// Utility classes
+// Prefix: u
+
+@import "utilities/clearfix";
+@import "utilities/hidden";
