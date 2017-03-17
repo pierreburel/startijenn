@@ -39,6 +39,10 @@
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "sass-em": "^1.0.2",
+    "sass-mq": "^3.3.2",
+    "sass-rem": "^1.2.3",
+    "sass-resolution": "^1.0.0"
   }
 }
