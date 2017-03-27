@@ -135,6 +135,10 @@ export const views = {
   src: ['./src/**/*.pug', '!./src/**/_*.pug'],
   dest: './dist',
   pug: {
-    
+    pretty: !!util.env.production,
+    locals: {
+      title: pkg.name,
+      lang: 'fr'
+    }
   }
 };
