@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+  <head>
+    {% block head %}
+      <title>{{title}}</title>
+      <link rel="stylesheet" href="assets/styles/main.css">
+      {% block styles %}{% endblock %}
+    {% endblock %}
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+    {% block foot %}
+      <script src="assets/scripts/main.js"></script>
+      <script src="assets/scripts/vendor.js"></script>
+      {% block scripts %}{% endblock %}
+    {% endblock %}
+  </body>
+</html>

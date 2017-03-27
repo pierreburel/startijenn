@@ -127,18 +127,19 @@ export const server = {
     scripts: './src/assets/scripts/**/*.js',
     sprites: './src/assets/images/**/*.svg',
     styles: './src/assets/styles/**/*.scss',
-    views: './src/**/*.pug'
+    views: './src/**/*.html'
   }
 };
 
 export const views = {
-  src: ['./src/**/*.pug', '!./src/**/_*.pug'],
+  src: ['./src/**/*.html', '!./src/**/_*.html'],
   dest: './dist',
-  pug: {
-    pretty: !!util.env.production,
-    locals: {
-      title: pkg.name,
-      lang: 'fr'
-    }
+  data: {
+    title: pkg.name,
+    lang: 'fr'
+  },
+  nunjucks: {
+    trimBlocks: true,
+    lstripBlocks: true
   }
 };

@@ -1,0 +1,11 @@
+{% extends "_layout.html" %}
+
+{% macro partial(name, locals = {}) %}
+  {% set locals = locals %}
+  {% include "_" + name + ".html" %}
+{% endmacro %}
+
+{% block content %}
+  <p>Test</p>
+  {{ partial("test", {test: "test"}) }}
+{% endblock %}
