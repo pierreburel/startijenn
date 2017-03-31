@@ -1,4 +1,8 @@
 extends _layout.pug
 
 block content
-  p Test
+  p(title=`test ${title}`)= `Test ${title}`
+  p Test #{title}
+  ul
+    - for (var x = 0; x < 3; x++)
+      li= x
