@@ -8,7 +8,7 @@ export default {
 };
 
 export const build = {
-  deps: ['clean'],
+  deps: util.env.production ? ['clean'] : [],
   sequence: [
     ['images', 'fonts', 'sprites'],
     ['styles', 'scripts'],
