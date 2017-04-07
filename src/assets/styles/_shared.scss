@@ -25,11 +25,11 @@
 // VENDORS
 // No package managed librairies (reset, plugins…)
 
-@import "vendors/normalize";
+@import "vendor/reset";
 
 // BASE
 // Global scope styles
 
 @import "base/fonts";
 @import "base/global";
-@import "base/reset";
+@import "base/elements";
