@@ -105,6 +105,36 @@ export const styles = {
   }
 };
 
+export const styleguide = {
+  project: {
+    title: `${pkg.name} : Styleguide`
+  },
+  docs: {
+    path: './src/docs'
+  },
+  components: {
+    path: './src/components'
+  },
+  web: {
+    static: {
+      path: './dist/assets'
+    },
+    builder: {
+      path: './dist/styleguide'
+    },
+    server: {
+      sync: true
+    },
+    theme: {
+      skin: 'navy',
+      format: 'yaml',
+      nav: ['components', 'docs'],
+      panels: ['html', 'view', 'context', 'resources', 'info', 'notes'],
+      lang: 'fr'
+    }
+  }
+};
+
 export const server = {
   deps: ['build'],
   browserSync: {
@@ -124,15 +154,15 @@ export const server = {
     copy: './src/static/**/*.*',
     fonts: './src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
     images: './src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
-    scripts: './src/assets/scripts/**/*.js',
+    scripts: ['./src/assets/scripts/**/*.js', './src/components/**/*.js'],
     sprites: './src/assets/images/**/*.svg',
-    styles: './src/assets/styles/**/*.scss',
+    styles: ['./src/assets/styles/**/*.scss', './src/components/**/*.scss'],
     views: './src/**/*.pug'
   }
 };
 
 export const views = {
-  src: ['./src/**/*.pug', '!./src/**/_*.pug'],
+  src: ['./src/**/*.pug', '!./src/**/_*.pug', '!./src/components/**/*.pug'],
   dest: './dist',
   pug: {
     pretty: !!util.env.production,

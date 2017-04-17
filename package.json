@@ -12,6 +12,8 @@
     "last 2 versions"
   ],
   "devDependencies": {
+    "@frctl/consolidate": "^1.0.1",
+    "@frctl/fractal": "^1.1.4",
     "autoprefixer": "^6.7.6",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.4.0",
