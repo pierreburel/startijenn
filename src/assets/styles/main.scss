@@ -1,15 +1,46 @@
 @charset "UTF-8";
 
-// SHARED IMPORTS
+// HELPERS
+// Functions and mixins
 
-@import "shared";
+@import "helpers/assets";
+@import "helpers/clearfix";
+@import "helpers/color";
+@import "helpers/font-face";
+@import "helpers/font-size";
+@import "helpers/maps";
+@import "helpers/settings";
 
+
+// NPM
+// Libraries imported from node_module, with link to the documentation
+
+@import "~sass-mq";         // https://github.com/sass-mq/sass-mq
+@import "~sass-rem";        // https://github.com/pierreburel/sass-rem
+@import "~sass-em";         // https://github.com/pierreburel/sass-em
+@import "~sass-resolution"; // https://github.com/pierreburel/sass-resolution
+
+// SETTINGS
+
+@import "settings";
+
+// VENDORS
+// No package managed librairies (reset, plugins…)
+
+@import "vendor/reset";
+
+// BASE
+// Global scope styles
+
+@import "base/fonts";
+@import "base/global";
+@import "base/elements";
 
 // COMPONENTS
 // Reutilisable components (banner, button, card…)
 // Prefix: c
 
-@import "components/container";
+@import "components/**/*.scss";
 
 
 // PAGES
@@ -29,5 +60,4 @@
 // Utility classes
 // Prefix: u
 
-@import "utilities/clearfix";
-@import "utilities/hidden";
+@import "utilities/*.scss";

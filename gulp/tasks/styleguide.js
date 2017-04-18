@@ -3,26 +3,32 @@ import path from 'path';
 import {styleguide as config} from '../config';
 
 const fractal = require('@frctl/fractal').create();
+// const consolidate = require('@frctl/consolidate');
+// const twig = require('twig');
+// const twigAdapter = consolidate('twig', twig);
 
+// Project
 fractal.set('project.title', config.project.title);
+
+// Components
 fractal.components.set('path', config.components.path);
+fractal.components.engine('@frctl/twig');
+fractal.components.set('ext', '.twig');
+
+// Docs
 fractal.docs.set('path', config.docs.path);
+
+// Web
 fractal.web.set('static.path', config.web.static.path);
+fractal.web.set('static.mount', config.web.static.mount);
 fractal.web.set('builder.dest', config.web.builder.dest);
 
-// const pug = require('pug');
-// const consolidate = require('@frctl/consolidate');
-// TODO: create/pass path helper 
-// pug.filters.test = function (test) { return test; };
-// const pugAdapter = consolidate('pug', pug);
-const pugAdapter = require('../lib/fractalPugAdapter');
-fractal.components.engine(pugAdapter);
-fractal.components.set('ext', '.pug');
-
+// Theme
 const mandelbrot = require('@frctl/mandelbrot');
 const theme = mandelbrot(config.web.theme);
 fractal.web.theme(theme);
 
+// Logs
 const logger = fractal.cli.console;
 
 gulp.task('styleguide:server', function(){

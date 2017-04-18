@@ -1,9 +1,0 @@
-.c-container {
-  @include rem((
-    max-width: dimension(container) + dimension(gutter) * 2,
-    padding-left: dimension(gutter),
-    padding-right: dimension(gutter)
-  ));
-  margin: 0 auto;
-  position: relative;
-}

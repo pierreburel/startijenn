@@ -1,3 +1,6 @@
-import $ from 'jquery';
+//=require components/**/*.js 
 
-System.import('./lib/log').then(log => log.default('test'));
+// Polyfills (mostly for IE/Edge)
+$(function () {
+  svg4everybody(); // External SVG
+});

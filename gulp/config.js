@@ -1,6 +1,4 @@
 import util from 'gulp-util';
-import webpack from 'webpack';
-import BabiliPlugin from 'babili-webpack-plugin';
 import pkg from '../package.json';
 
 export default {
@@ -44,37 +42,18 @@ export const images = {
 export const scripts = {
   src: './src/assets/scripts/*.js',
   dest: './dist/assets/scripts/',
-  webpack: {
-    output: {
-      publicPath: 'assets/scripts/',
-      chunkFilename: '[id].chunk.js'
-    },
-    module: {
-      rules: [
-        { 
-          test: /\.js$/, 
-          exclude: /node_modules/, 
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              ['env', {
-                targets: {
-                  browsers: pkg.browserlist
-                }
-              }],
-              ['babili']
-            ]
-          }
+  include: {
+    includePaths: ['./node_modules', './src/assets/scripts', './src'],
+  },
+  babel: {
+    ignore: ['vendor.js', 'jquery.js'],
+    presets: [
+      ['env', {
+        targets: {
+          browsers: pkg.browserlist
         }
-      ]
-    },
-    plugins: [
-      new BabiliPlugin(),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor'
-      })
-    ],
-    devtool: util.env.production ? 'cheap-module-source-map' : 'cheap-module-eval-source-map'
+      }]
+    ]
   }
 };
 
@@ -96,9 +75,11 @@ export const styles = {
   src: './src/assets/styles/**/*.scss',
   dest: './dist/assets/styles/',
   sass: {
-    includePaths: ['./node_modules'],
+    includePaths: ['./node_modules', './src/assets/styles', './src'],
     outputStyle: 'compressed',
     precision: 10
+  },
+  importer: {
   },
   autoprefixer: {
     browsers: pkg.browserlist
@@ -117,10 +98,11 @@ export const styleguide = {
   },
   web: {
     static: {
-      path: './dist/assets'
+      path: './dist/assets',
+      mount: 'assets'
     },
     builder: {
-      path: './dist/styleguide'
+      dest: './dist/styleguide'
     },
     server: {
       sync: true
@@ -130,7 +112,10 @@ export const styleguide = {
       format: 'yaml',
       nav: ['components', 'docs'],
       panels: ['html', 'view', 'context', 'resources', 'info', 'notes'],
-      lang: 'fr'
+      lang: 'en',
+      static: {
+        mount: 'theme'
+      }
     }
   }
 };
@@ -157,16 +142,16 @@ export const server = {
     scripts: ['./src/assets/scripts/**/*.js', './src/components/**/*.js'],
     sprites: './src/assets/images/**/*.svg',
     styles: ['./src/assets/styles/**/*.scss', './src/components/**/*.scss'],
-    views: './src/**/*.pug'
+    views: './src/**/*.twig'
   }
 };
 
 export const views = {
-  src: ['./src/**/*.pug', '!./src/**/_*.pug', '!./src/components/**/*.pug'],
+  src: ['./src/**/*.twig', '!./src/components/**/*.twig', '!./src/partials/**/*.twig'],
   dest: './dist',
-  pug: {
-    pretty: !!util.env.production,
-    locals: {
+  twig: {
+    base: './src',
+    data: {
       title: pkg.name,
       lang: 'fr'
     }

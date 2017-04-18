@@ -1,17 +1,19 @@
 import gulp from 'gulp';
 import changed from 'gulp-changed';
 import plumber from 'gulp-plumber';
+import include from 'gulp-include';
+import babel from 'gulp-babel';
 import notify from 'gulp-notify';
-import webpack from 'webpack';
-import webpackStream from 'webpack-stream';
-import named from 'vinyl-named';
+import sourcemaps from 'gulp-sourcemaps';
 import {scripts as config} from '../config';
 
 gulp.task('scripts', config.deps, () => 
   gulp.src(config.src)
     .pipe(changed(config.dest))
     .pipe(plumber())
-    .pipe(named())
-    .pipe(webpackStream(config.webpack, webpack).on('error', notify.onError({title: 'Webpack error'})))
+    .pipe(sourcemaps.init())
+    .pipe(include(config.include).on('error', notify.onError({title: 'Include error'})))
+    .pipe(babel(config.babel).on('error', notify.onError({title: 'Babel error'})))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.dest))
 );

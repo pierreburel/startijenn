@@ -1,0 +1,5 @@
+{% extends "partials/layout.twig" %}
+{% block main %}
+  {% include 'components/button/button.twig' with {label: 'Test'} %}
+  {% component '@button' with {label: 'Test'} %}
+{% endblock %}

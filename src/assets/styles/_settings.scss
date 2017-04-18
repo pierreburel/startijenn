@@ -79,7 +79,7 @@
 // MQ (BREAKPOINTS)
 
 $mq-breakpoints: (
-
+  medium: 600px
 );
 @include settings(breakpoints, $mq-breakpoints);
 

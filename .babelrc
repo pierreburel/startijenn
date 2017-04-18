@@ -1,4 +1,3 @@
 {
-  "presets": ["es2015"],
-  "ignore": ["gulp/lib/fractalPugAdapter.js"]
+  "presets": ["es2015"]
 }
