@@ -3759,6 +3759,10 @@ is-tar@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-tar/-/is-tar-1.0.0.tgz#2f6b2e1792c1f5bb36519acaa9d65c0d26fe853d"
 
+is-there@^4.0.0:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/is-there/-/is-there-4.4.2.tgz#44e3e03381f90613796b1edc3d41e59d555a6fe5"
+
 is-typedarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
@@ -4853,6 +4857,13 @@ node-sass-glob-importer@^3.0.2:
   dependencies:
     glob "^7.1.1"
     unique-concat "^0.2.2"
+
+node-sass-json-importer@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/node-sass-json-importer/-/node-sass-json-importer-3.0.2.tgz#f5b0b95d94d5652cbc3f2c36e02f06f42ca72dbd"
+  dependencies:
+    is-there "^4.0.0"
+    lodash "^3.10.1"
 
 node-sass-magic-importer@^4.1.4:
   version "4.1.4"

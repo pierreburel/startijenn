@@ -2,13 +2,14 @@ import gulp from 'gulp';
 import changed from 'gulp-changed';
 import notify from 'gulp-notify';
 import sass from 'gulp-sass';
-import importer from 'node-sass-magic-importer';
+import magicImporter from 'node-sass-magic-importer';
+import jsonImporter from 'node-sass-json-importer';
 import sourcemaps from 'gulp-sourcemaps';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import {styles as config} from '../config';
 
-config.sass.importer = importer(config.importer);
+config.sass.importer = [jsonImporter, magicImporter(config.importer)];
 
 gulp.task('styles', () => 
   gulp.src(config.src)
