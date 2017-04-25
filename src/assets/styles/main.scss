@@ -1,19 +1,5 @@
 @charset "UTF-8";
 
-@import "settings.json";
-
-// HELPERS
-// Functions and mixins
-
-@import "helpers/assets";
-@import "helpers/clearfix";
-@import "helpers/color";
-@import "helpers/font-face";
-@import "helpers/font-size";
-@import "helpers/maps";
-@import "helpers/settings";
-
-
 // NPM
 // Libraries imported from node_module, with link to the documentation
 
@@ -21,6 +7,12 @@
 @import "~sass-rem";        // https://github.com/pierreburel/sass-rem
 @import "~sass-em";         // https://github.com/pierreburel/sass-em
 @import "~sass-resolution"; // https://github.com/pierreburel/sass-resolution
+
+
+// HELPERS
+// Functions and mixins
+
+@import "helpers/**/*.scss";
 
 // SETTINGS
 
@@ -62,4 +54,4 @@
 // Utility classes
 // Prefix: u
 
-@import "utilities/*.scss";
+@import "utilities/**/*.scss";

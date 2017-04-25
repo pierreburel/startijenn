@@ -1,17 +1,12 @@
-import util from 'gulp-util';
-import pkg from '../package.json';
+import pkg from './package.json';
 
 export default {
-  deps: ['server']
+  tasks: ['server']
 };
 
 export const build = {
-  deps: util.env.clean ? ['clean'] : [],
-  sequence: [
-    ['images', 'fonts', 'sprites'],
-    ['styles', 'scripts'],
-    ['views', 'copy']
-  ]
+  assets: ['images', 'fonts', 'sprites', 'styles', 'scripts'],
+  views: ['views', 'copy']
 };
 
 export const clean = {
@@ -80,6 +75,7 @@ export const styles = {
     precision: 10
   },
   importer: {
+    disableImportOnce: true
   },
   autoprefixer: {
     browsers: pkg.browserlist
@@ -87,41 +83,27 @@ export const styles = {
 };
 
 export const styleguide = {
-  project: {
-    title: `${pkg.name} : Styleguide`
+  title: `${pkg.name} : Styleguide`,
+  docs: './src/docs',
+  src: './src/components',
+  assets: './dist/assets',
+  dest: './dist/styleguide',
+  browserSync: {
+    open: false
   },
-  docs: {
-    path: './src/docs'
-  },
-  components: {
-    path: './src/components'
-  },
-  web: {
+  theme: {
+    skin: 'navy',
+    format: 'yaml',
+    nav: ['components', 'docs'],
+    panels: ['html', 'view', 'context', 'resources', 'info', 'notes'],
+    lang: 'en',
     static: {
-      path: './dist/assets',
-      mount: 'assets'
-    },
-    builder: {
-      dest: './dist/styleguide'
-    },
-    server: {
-      sync: true
-    },
-    theme: {
-      skin: 'navy',
-      format: 'yaml',
-      nav: ['components', 'docs'],
-      panels: ['html', 'view', 'context', 'resources', 'info', 'notes'],
-      lang: 'en',
-      static: {
-        mount: 'theme'
-      }
+      mount: 'theme'
     }
   }
 };
 
-export const server = {
-  deps: ['build'],
+export const start = {
   browserSync: {
     files: [
       './dist/**/*.html', 
@@ -134,15 +116,6 @@ export const server = {
     server: './dist',
     ghostMode: false,
     open: false
-  },
-  watch: {
-    copy: './src/static/**/*.*',
-    fonts: './src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
-    images: './src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
-    scripts: ['./src/assets/scripts/**/*.js', './src/components/**/*.js'],
-    sprites: './src/assets/images/**/*.svg',
-    styles: ['./src/assets/styles/**/*.scss', './src/components/**/*.scss'],
-    views: './src/**/*.twig'
   }
 };
 
@@ -157,3 +130,17 @@ export const views = {
     }
   }
 };
+
+export const watch = {
+  assets: {
+    fonts: './src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
+    images: './src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
+    scripts: ['./src/assets/scripts/**/*.js', './src/components/**/*.js'],
+    sprites: './src/assets/images/**/*.svg',
+    styles: ['./src/assets/styles/**/*.scss', './src/components/**/*.scss']
+  },
+  views: {
+    copy: './src/static/**/*.*',
+    views: './src/**/*.twig'
+  }
+}

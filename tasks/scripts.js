@@ -7,7 +7,7 @@ import notify from 'gulp-notify';
 import sourcemaps from 'gulp-sourcemaps';
 import {scripts as config} from '../config';
 
-gulp.task('scripts', config.deps, () => 
+gulp.task('scripts', () => 
   gulp.src(config.src)
     .pipe(changed(config.dest))
     .pipe(plumber())
