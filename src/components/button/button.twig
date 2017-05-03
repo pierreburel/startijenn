@@ -1,1 +1,1 @@
-<button class="c-button js-button">{{ label }}</button>
+<button class="c-button{% if modifier %} c-button--{{ modifier }}{% endif %} js-button">{{ label | default("Click here") }}</button>

@@ -95,7 +95,7 @@ export const styleguide = {
     skin: 'navy',
     format: 'yaml',
     nav: ['components', 'docs'],
-    panels: ['html', 'view', 'context', 'resources', 'info', 'notes'],
+    panels: ['html', 'twig', 'view', 'context', 'resources', 'info', 'notes'],
     lang: 'en',
     static: {
       mount: 'theme'

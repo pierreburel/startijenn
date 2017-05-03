@@ -1,4 +1,9 @@
 {% extends "partials/layout.twig" %}
 {% block main %}
-  {% include 'components/button/button.twig' with {label: 'Test'} %}
+  {% include "components/button/button.twig" with {
+    "label": "Test"
+  } %}
+  {% include "@card" %}
+  {% include "@card" with { title: "Test", button: { label: "Test button" } } %}
+  {% include "@no-component" ignore missing %}
 {% endblock %}

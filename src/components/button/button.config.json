@@ -1,0 +1,28 @@
+{
+  "title": "Button",
+  "context": {
+    "label": "Click"
+  },
+  "collated": true,
+  "variants": [
+    {
+      "name": "small",
+      "context": {
+        "modifier": "small"
+      }
+    },
+    {
+      "name": "large",
+      "context": {
+        "modifier": "large"
+      }
+    },
+    {
+      "name": "icon",
+      "context": {
+        "icon": "test",
+        "label": "Button with icon"
+      }
+    }
+  ]
+}
