@@ -21,6 +21,22 @@ export const copy = {
   dest: 'dist/'
 };
 
+export const deploy = {
+  src: './dist/**',
+  rsync: {
+    root: 'dist/',
+    hostname: '', // TODO
+    destination: '', // TODO
+    archive: true,
+    silent: false,
+    compress: true,
+    incremental: true,
+    progress: true,
+    emptyDirectories: true,
+    clean: true
+  }
+};
+
 export const fonts = {
   src: 'src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
   dest: 'dist/assets/fonts/'
@@ -82,27 +98,6 @@ export const styles = {
   }
 };
 
-export const styleguide = {
-  title: `${pkg.name} : Styleguide`,
-  docs: 'src/docs',
-  src: 'src/components',
-  assets: 'dist/assets',
-  dest: 'dist/styleguide',
-  browserSync: {
-    open: false
-  },
-  theme: {
-    skin: 'navy',
-    format: 'yaml',
-    nav: ['components', 'docs'],
-    panels: ['html', 'twig', 'view', 'context', 'resources', 'info', 'notes'],
-    lang: 'en',
-    static: {
-      mount: 'theme'
-    }
-  }
-};
-
 export const start = {
   browserSync: {
     files: [
@@ -120,7 +115,7 @@ export const start = {
 };
 
 export const views = {
-  src: ['src/**/*.twig', '!src/components/**/*.twig', '!src/partials/**/*.twig'],
+  src: ['src/**/*.twig', '!src/partials/**/*.twig'],
   dest: 'dist',
   twig: {
     base: 'src',
@@ -135,9 +130,9 @@ export const watch = {
   assets: {
     fonts: 'src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
     images: 'src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
-    scripts: ['src/assets/scripts/**/*.js', 'src/components/**/*.js'],
-    sprites: 'src/assets/images/**/*.svg',
-    styles: ['src/assets/styles/**/*.scss', 'src/components/**/*.scss']
+    scripts: 'src/assets/scripts/**/*.js',
+    icons: 'src/assets/images/**/*.svg',
+    styles: 'src/assets/styles/**/*.scss'
   },
   views: {
     copy: 'src/static/**/*.*',

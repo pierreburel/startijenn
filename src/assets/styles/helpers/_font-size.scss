@@ -1,11 +1,6 @@
-@mixin font-size($font-size: default, $line-height: auto) {
+@mixin font-size($font-size: default, $line-height: false) {
   @if type-of($font-size) == string {
     $font-size: font-size($font-size);
-  }
-  
-  @if type-of($font-size) == list {
-    $line-height: nth($font-size, 2);
-    $font-size: nth($font-size, 1);
   }
   
   @if $font-size {

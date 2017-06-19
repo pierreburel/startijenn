@@ -12,8 +12,6 @@
     "last 2 versions"
   ],
   "devDependencies": {
-    "@frctl/fractal": "^1.1.4",
-    "@frctl/twig": "https://github.com/frctl/twig",
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.25.0",
     "babel-preset-env": "^1.5.2",
@@ -37,7 +35,6 @@
     "gulp-svgmin": "^1.2.4",
     "gulp-svgstore": "^6.1.0",
     "gulp-twig": "^0.7.0",
-    "node-sass-json-importer": "^3.0.2",
     "node-sass-magic-importer": "^4.1.5",
     "require-dir": "^0.3.2"
   },

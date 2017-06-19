@@ -1,44 +1,94 @@
-@import "settings.json";
-
 // COLORS
 
-@include settings(colors, $colors);
+@include settings(colors, (
+  foreground: #000,
+  background: #fff,
+  red: #f00,
+  green: #0f0,
+  blue: #00f
+), (
+  primary: blue, 
+  secondary: green,
+  error: red
+));
 
 
 // FONT-FAMILIES
 
-@include settings(font-families, $font-families);
+@include settings(font-families, (
+  sans-serif: sans-serif,
+  serif: (Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif),
+  code: (Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace)
+), (
+  default: sans-serif, 
+  primary: serif
+));
 
 
 // FONT-SIZES
 
-@include settings(font-sizes, $font-sizes);
+@include settings(font-sizes, (
+  default: 16px
+));
 
 
 // FONT-WEIGHTS
 
-@include settings(font-weights, $font-weights);
+@include settings(font-weights, (
+  thin: 100,
+  hairline: 100,
+  extra-light: 200,
+  ultra-light: 200,
+  light: 300,
+  normal: 400,
+  regular: 400,
+  medium: 500,
+  semi-bold: 600,
+  demi-bold: 600,
+  bold: 700,
+  extra-bold: 800,
+  ultra-bold: 800,
+  black: 900,
+  heavy: 900
+), (
+  default: regular
+));
 
 
 // LINE-HEIGHTS
 
-@include settings(line-heights, $line-heights);
+@include settings(line-heights, (
+  default: 24px
+));
 
 
 // DIMENSIONS
 
-@include settings(dimensions, $dimensions);
+@include settings(dimensions, (
+  container: 940px,
+  gutter: 20px
+));
 
 
 // Z-INDEXES
 
-@include settings(z-indexes, $z-indexes);
+@include settings(z-indexes, (
+  header: 30,
+  main: 20,
+  footer: 10
+));
 
 
-// BREAKPOINTS (+ MQ)
+// MQ (BREAKPOINTS)
 
-$mq-breakpoints: $breakpoints;
-@include settings(breakpoints, $breakpoints);
+$mq-breakpoints: (
+  xsmall: 320px,
+  small: 480px,
+  medium: 760px,
+  large: 960px,
+  xlarge: 1220px
+);
+@include settings(breakpoints, $mq-breakpoints);
 
 
 // REM

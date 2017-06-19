@@ -2,6 +2,7 @@
 
 // NPM
 // Libraries imported from node_module, with link to the documentation
+// /!\ Imported by https://github.com/maoberlehner/node-sass-package-importer
 
 @import "~sass-mq";         // https://github.com/sass-mq/sass-mq
 @import "~sass-rem";        // https://github.com/pierreburel/sass-rem
@@ -11,8 +12,9 @@
 
 // HELPERS
 // Functions and mixins
+// /!\ Imported by https://github.com/maoberlehner/node-sass-glob-importer (order not guaranteed)
 
-@import "helpers/**/*.scss";
+@import "helpers/*";
 
 // SETTINGS
 
@@ -31,27 +33,16 @@
 @import "base/elements";
 
 // COMPONENTS
-// Reutilisable components (banner, button, card…)
+// Reusable components (banner, button, card…)
+// /!\ Imported by https://github.com/maoberlehner/node-sass-glob-importer (order not guaranteed)
 // Prefix: c
 
-@import "components/**/*.scss";
-
-
-// PAGES
-// Page specific styles
-// Prefix: p
-
-// @import "pages/homepage";
-
-
-// THEMES
-// Prefix: t
-
-// @import "themes/colors";
+@import "components/*";
 
 
 // UTILITIES
-// Utility classes
+// Utility classes (colors, typography…)
+// /!\ Imported by https://github.com/maoberlehner/node-sass-glob-importer (order not guaranteed)
 // Prefix: u
 
-@import "utilities/**/*.scss";
+@import "utilities/*";

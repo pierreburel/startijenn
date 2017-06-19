@@ -51,5 +51,14 @@ button:not(:disabled) {
 button,
 input,
 textarea {
+  color: inherit;
   font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+  text-decoration: none;
 }

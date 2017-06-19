@@ -1,7 +1,0 @@
-{
-  "@button": "components/button/button.twig",
-  "@button--small": "components/button/button.twig",
-  "@button--large": "components/button/button.twig",
-  "@button--icon": "components/button/button--icon.twig",
-  "@card": "components/card/card.twig"
-}
