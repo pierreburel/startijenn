@@ -1,4 +1,4 @@
-//=require components/**/*.js 
+//=require ./components/**/*.js 
 
 // Polyfills (mostly for IE/Edge)
 $(function () {
