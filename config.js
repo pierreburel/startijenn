@@ -10,35 +10,35 @@ export const build = {
 };
 
 export const clean = {
-  src: './dist/*',
+  src: 'dist/*',
   del: {
     dot: true
   }
 };
 
 export const copy = {
-  src: './src/static/**/*.*',
-  dest: './dist/'
+  src: 'src/static/**/*.*',
+  dest: 'dist/'
 };
 
 export const fonts = {
-  src: './src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
-  dest: './dist/assets/fonts/'
+  src: 'src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
+  dest: 'dist/assets/fonts/'
 };
 
 export const images = {
-  src: './src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
-  dest: './dist/assets/images/',
+  src: 'src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
+  dest: 'dist/assets/images/',
   imagemin: {
     
   }
 };
 
 export const scripts = {
-  src: './src/assets/scripts/*.js',
-  dest: './dist/assets/scripts/',
+  src: 'src/assets/scripts/*.js',
+  dest: 'dist/assets/scripts/',
   include: {
-    includePaths: ['./node_modules', './src/assets/scripts', './src'],
+    includePaths: ['node_modules', 'src/assets/scripts', 'src'],
   },
   babel: {
     ignore: ['vendor.js', 'jquery.js'],
@@ -53,8 +53,8 @@ export const scripts = {
 };
 
 export const sprites = {
-  src: './src/assets/images/sprite/*.svg',
-  dest: './dist/assets/images/',
+  src: 'src/assets/images/sprite/*.svg',
+  dest: 'dist/assets/images/',
   svgmin: {
     
   },
@@ -67,10 +67,10 @@ export const sprites = {
 };
 
 export const styles = {
-  src: './src/assets/styles/**/*.scss',
-  dest: './dist/assets/styles/',
+  src: 'src/assets/styles/**/*.scss',
+  dest: 'dist/assets/styles/',
   sass: {
-    includePaths: ['./node_modules', './src/assets/styles', './src'],
+    includePaths: ['node_modules', 'src/assets/styles', 'src'],
     outputStyle: 'compressed',
     precision: 10
   },
@@ -84,10 +84,10 @@ export const styles = {
 
 export const styleguide = {
   title: `${pkg.name} : Styleguide`,
-  docs: './src/docs',
-  src: './src/components',
-  assets: './dist/assets',
-  dest: './dist/styleguide',
+  docs: 'src/docs',
+  src: 'src/components',
+  assets: 'dist/assets',
+  dest: 'dist/styleguide',
   browserSync: {
     open: false
   },
@@ -106,24 +106,24 @@ export const styleguide = {
 export const start = {
   browserSync: {
     files: [
-      './dist/**/*.html', 
-      './dist/assets/styles/**/*.css', 
-      './dist/assets/scripts/**/*.js', 
-      './dist/assets/images', 
-      './dist/assets/fonts'
+      'dist/**/*.html', 
+      'dist/assets/styles/**/*.css', 
+      'dist/assets/scripts/**/*.js', 
+      'dist/assets/images', 
+      'dist/assets/fonts'
     ],
     injectChanges: true,
-    server: './dist',
+    server: 'dist',
     ghostMode: false,
     open: false
   }
 };
 
 export const views = {
-  src: ['./src/**/*.twig', '!./src/components/**/*.twig', '!./src/partials/**/*.twig'],
-  dest: './dist',
+  src: ['src/**/*.twig', '!src/components/**/*.twig', '!src/partials/**/*.twig'],
+  dest: 'dist',
   twig: {
-    base: './src',
+    base: 'src',
     data: {
       title: pkg.name,
       lang: 'fr'
@@ -133,14 +133,14 @@ export const views = {
 
 export const watch = {
   assets: {
-    fonts: './src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
-    images: './src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
-    scripts: ['./src/assets/scripts/**/*.js', './src/components/**/*.js'],
-    sprites: './src/assets/images/**/*.svg',
-    styles: ['./src/assets/styles/**/*.scss', './src/components/**/*.scss']
+    fonts: 'src/assets/fonts/**/*.{woff,woff2,ttg,otf}',
+    images: 'src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
+    scripts: ['src/assets/scripts/**/*.js', 'src/components/**/*.js'],
+    sprites: 'src/assets/images/**/*.svg',
+    styles: ['src/assets/styles/**/*.scss', 'src/components/**/*.scss']
   },
   views: {
-    copy: './src/static/**/*.*',
-    views: './src/**/*.twig'
+    copy: 'src/static/**/*.*',
+    views: 'src/**/*.twig'
   }
 }
