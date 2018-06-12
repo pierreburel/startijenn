@@ -1,0 +1,13 @@
+@import "~startijenn-sass";
+
+@include font-face("Roboto", "roboto-regular");
+
+body {
+  background-image: image-url('goat.jpg');
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@import "./components/*.scss";

@@ -8,13 +8,45 @@
   },
   "author": "Pierre Burel <contact@pierreburel.com>",
   "license": "MIT",
-  "browserlist": [
+  "browserslist": [
     "last 2 versions"
   ],
   "devDependencies": {
-
+    "autoprefixer": "^8.6.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-globs-webpack-plugin": "^0.2.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "cssnano": "^3.10.0",
+    "file-loader": "^1.1.11",
+    "import-glob-loader": "^1.1.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
+    "resolve-url-loader": "^2.3.0",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^7.0.2",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.1",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-manifest-plugin": "^2.0.3",
+    "webpack-merge": "^4.1.2",
+    "write-file-webpack-plugin": "^4.3.2"
   },
   "dependencies": {
-
+    "picturefill": "^3.0.2",
+    "startijenn-sass": "^1.1.0",
+    "svg4everybody": "^2.1.9"
+  },
+  "scripts": {
+    "clean": "rimraf diff",
+    "build": "webpack --progress --mode=development",
+    "build:production": "webpack --progress --mode=production",
+    "dev": "webpack-dev-server --progress --mode=development"
   }
 }
